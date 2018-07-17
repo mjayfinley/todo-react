@@ -4,17 +4,6 @@ import React, {Component} from 'react'
 export class TodoList extends Component {
 
 
-  handleCompleteTask = ((task, e) => {
-
-    //let completedTask = {title: task.title, id : task.id, completed : true}
-
-    console.log(e.target)
-    console.log(task)
-
-
-
-  })
-
   render() {
 
     let tasks = this.props.todoList
@@ -24,7 +13,7 @@ export class TodoList extends Component {
       return (
         <li key={task.id}>
           {task.title}
-          <button onClick={(event)=>{this.handleCompleteTask(task, event)}}>Complete Task</button>
+          <button onClick={this.handleCompleteTask}>Complete Task</button>
         </li>
       )
     })

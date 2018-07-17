@@ -40,11 +40,15 @@ class App extends Component {
       <div>
         <input onChange={this.handleTaskChange} type="text" placeholder="enter task"/>
         <button onClick={this.handleAddTask}>Add Task</button>
-        <TodoList todoList = {this.state.todoList}/>
+        <TodoList todoList = {this.state.todoList} onClick={this.completeTask}/>
         <CompletedList completedList = {this.state.completedList}/>
       </div>
     );
   }
+
+  completeTask = ((e) => {
+
+  })
 }
 
 export default App;
