@@ -51,13 +51,28 @@ class App extends Component {
   })
 
 
+  handlePendingTask = ((task) => {
+
+    let tasks = this.state.completedList
+
+    tasks = tasks.filter((taskToMove) => {
+      return taskToMove.id !== task.id
+    })
+
+    this.setState({
+      todoList : this.state.todoList.concat(task),
+      completedList : tasks,
+    })
+  })
+
+
   render() {
     return (
       <div>
         <input onChange={this.handleTaskChange} type="text" placeholder="enter task"/>
         <button onClick={this.handleAddTask}>Add Task</button>
         <TodoList todoList={this.state.todoList} handleCompletedTask = {this.handleCompletedTask}/>
-        <CompletedList completedList = {this.state.completedList}/>
+        <CompletedList completedList = {this.state.completedList} handlePendingTask = {this.handlePendingTask}/>
       </div>
     );
   }

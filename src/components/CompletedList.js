@@ -3,17 +3,25 @@ import React, {Component} from 'react'
 
 export class CompletedList extends Component {
 
+  handlePendingTaskButtonClick = ((task) => {
+
+    this.props.handlePendingTask(task)
+
+  })
+
   render() {
 
     let tasks = this.props.completedList
 
     let taskName = tasks.map((task, index) => {
+
       return (
-        <li key={index}>
+        <li key={task.id}>
           {task.title}
-          <button onClick={this.handlePendingTask}>Still Pending Task</button>
+          <button onClick={() => this.handlePendingTaskButtonClick(task)}>Complete Task</button>
         </li>
       )
+
     })
     return (
       <div id="completedTasks">
