@@ -23,10 +23,10 @@ class App extends Component {
     let task = { title : this.state.taskName, id : Date.now(), completed : false }
 
     this.setState({
-      ...this.state,
       todoList : this.state.todoList.concat(task)
     })
   })
+
 
   handleTaskChange = ((e) => {
 
@@ -40,15 +40,13 @@ class App extends Component {
       <div>
         <input onChange={this.handleTaskChange} type="text" placeholder="enter task"/>
         <button onClick={this.handleAddTask}>Add Task</button>
-        <TodoList todoList = {this.state.todoList} onClick={this.completeTask}/>
+        <TodoList todoList = {this.state.todoList} />
         <CompletedList completedList = {this.state.completedList}/>
       </div>
     );
   }
 
-  completeTask = ((e) => {
 
-  })
 }
 
 export default App;
