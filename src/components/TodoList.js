@@ -3,8 +3,10 @@ import React, {Component} from 'react'
 
 export class TodoList extends Component {
 
-  handleCompleteTask = ((task) => {
-    console.log(task)
+  handleCompleteTaskButtonClick = ((task) => {
+
+    this.props.handleCompletedTask(task)
+
   })
 
 
@@ -17,7 +19,7 @@ export class TodoList extends Component {
       return (
         <li key={task.id}>
           {task.title}
-          <button onClick={() => this.handleCompleteTask(task)}>Complete Task</button>
+          <button onClick={() => this.handleCompleteTaskButtonClick(task)}>Complete Task</button>
         </li>
       )
     })
